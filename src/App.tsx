@@ -9,9 +9,9 @@ function App() {
 
   const backgroundImages = [
     'https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80',
-    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80',
-    'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80',
-    'https://images.unsplash.com/photo-1600607687644-c7171b42498f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'
+    'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80',
+    'https://images.unsplash.com/photo-1613896640137-bb5b31496315?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80',
+    'https://images.unsplash.com/photo-1523779105320-d1cd346ff52b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'
   ];
 
   useEffect(() => {
