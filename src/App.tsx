@@ -18,7 +18,7 @@ function App() {
     // Keep loading screen for at least 5 seconds
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -97,7 +97,7 @@ function App() {
                 VINCIERE
               </h1>
               <p className="mt-4 text-xl text-gray-300 tracking-wide opacity-0 animate-[fadeIn_1s_ease-out_0.5s_forwards]">
-                Luxury Redefined
+                Coming Soon
               </p>
             </div>
 
