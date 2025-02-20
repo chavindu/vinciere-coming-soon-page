@@ -135,9 +135,9 @@ function App() {
             {/* Social Links */}
             <div className="flex justify-center space-x-6 mt-8 opacity-0 animate-[fadeIn_1s_ease-out_1.5s_forwards]">
               {[
-                { Icon: Instagram, href: '#' },
-                { Icon: Facebook, href: '#' },
-                { Icon: Mail, href: 'mailto:vinciere@bitlab.lk' }
+                { Icon: Instagram, href: 'https://www.instagram.com/vinciere_shop/' },
+                { Icon: Facebook, href: 'https://web.facebook.com/profile.php?id=61572228401183' },
+                { Icon: Mail, href: 'mailto:contact@vinciere.com' }
               ].map((social, index) => (
                 <a
                   key={index}
