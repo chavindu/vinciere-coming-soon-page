@@ -102,7 +102,7 @@ function App() {
             </div>
 
             {/* Newsletter */}
-            <div className="max-w-md mx-auto opacity-0 animate-[fadeIn_1s_ease-out_1s_forwards]">
+{/*             <div className="max-w-md mx-auto opacity-0 animate-[fadeIn_1s_ease-out_1s_forwards]">
               <h2 className="text-xl text-white mb-4">Be the first to know when we launch</h2>
               <form onSubmit={handleSubmit} className="flex gap-2">
                 <input
@@ -130,7 +130,7 @@ function App() {
                    'Notify Me'}
                 </button>
               </form>
-            </div>
+            </div> */}
 
             {/* Social Links */}
             <div className="flex justify-center space-x-6 mt-8 opacity-0 animate-[fadeIn_1s_ease-out_1.5s_forwards]">
