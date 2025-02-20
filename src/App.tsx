@@ -18,7 +18,7 @@ function App() {
     // Keep loading screen for at least 5 seconds
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
