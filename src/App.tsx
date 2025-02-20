@@ -15,29 +15,38 @@ function App() {
   ];
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000);
+    // Keep loading screen for at least 5 seconds
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
+    // Change background image every 8 seconds
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => 
         prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1
       );
     }, 8000);
+
     return () => clearInterval(interval);
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitStatus('loading');
 
-    const formData = new FormData(e.currentTarget);
+    const formData = new URLSearchParams();
+    formData.append('form-name', 'newsletter');
+    formData.append('email', email);
 
     try {
       const response = await fetch('/', {
         method: 'POST',
-        body: formData,
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formData.toString(),
       });
 
       if (!response.ok) throw new Error('Subscription failed');
@@ -54,6 +63,7 @@ function App() {
 
   return (
     <>
+      {/* Loading Screen */}
       <div className={`loading-screen ${!loading ? 'animate-[slideOut_0.8s_ease-in-out_forwards]' : ''}`}>
         <div className="text-center">
           <div className="loading-logo mb-4">
@@ -63,7 +73,9 @@ function App() {
         </div>
       </div>
 
+      {/* Main Content */}
       <div className="min-h-screen relative cursor-fancy">
+        {/* Background Images */}
         {backgroundImages.map((image, index) => (
           <div 
             key={index}
@@ -78,8 +90,10 @@ function App() {
           />
         ))}
 
+        {/* Content */}
         <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl w-full space-y-12 text-center" style={{ animation: 'fadeIn 1s ease-out' }}>
+            {/* Logo */}
             <div className="mb-8 hover:scale-105 transition-transform duration-300">
               <h1 className="text-5xl md:text-7xl font-bold text-white tracking-wider" style={{ animation: 'float 6s ease-in-out infinite' }}>
                 VINCIERE
@@ -89,19 +103,13 @@ function App() {
               </p>
             </div>
 
+            {/* Newsletter */}
             <div className="max-w-md mx-auto opacity-0 animate-[fadeIn_1s_ease-out_1s_forwards]">
               <h2 className="text-xl text-white mb-4">Be the first to know when we launch</h2>
-              <form
-                onSubmit={handleSubmit}
-                name="newsletter"
-                method="POST"
-                data-netlify="true"
-                className="flex gap-2"
-              >
+              <form onSubmit={handleSubmit} className="flex gap-2" data-netlify="true" name="newsletter">
                 <input type="hidden" name="form-name" value="newsletter" />
                 <input
                   type="email"
-                  name="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
@@ -127,6 +135,7 @@ function App() {
               </form>
             </div>
 
+            {/* Social Links */}
             <div className="flex justify-center space-x-6 mt-8 opacity-0 animate-[fadeIn_1s_ease-out_1.5s_forwards]">
               {[
                 { Icon: Instagram, href: 'https://www.instagram.com/vinciere_shop/' },
